@@ -1,8 +1,8 @@
 .App .container {
   display: block;
   margin: 12px auto 13px;
-  max-width: 650px;
-  height: 600px;
+  max-width: 645px;
+  height: 576px;
   background-image: linear-gradient(to top, #fde6b3 0%, #d1fdff 100%);
   border-radius: 20px;
   padding: 20px;
