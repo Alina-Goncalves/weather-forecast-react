@@ -3,6 +3,7 @@ import "./Search.css";
 import pushpin from "./images/pushpin.png";
 import bigEmoji from "./images/sun-big-cloud.png";
 import axios from "axios";
+import CurrentCityTemp from "./CurrentCityTemp";
 
 export default function Search({ defaultCity }) {
   const [city, setCity] = useState(defaultCity);
@@ -63,6 +64,7 @@ export default function Search({ defaultCity }) {
             </div>
           </div>
         </form>
+        <CurrentCityTemp data={response} />
         <div className="bigWeatherSymbol">
           <img src={bigEmoji} alt="Sun" />
         </div>
