@@ -1,0 +1,32 @@
+.card {
+  border-radius: 25px;
+  text-align: center;
+  font-size: 12px;
+  background-color: transparent;
+  transition: all 200ms ease-in-out;
+}
+
+.card:hover {
+  border: 1px solid #086972;
+  box-shadow: 9px 9px 86px #d1fdff;
+  cursor: default;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.weatherSymbols img {
+  width: 56px;
+  height: 56px;
+}
+
+.maxTemperature {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f87808;
+}
+
+.minTemperature {
+  color: #1f4068;
+}
