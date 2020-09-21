@@ -41,7 +41,7 @@ export default function Search({ defaultCity }) {
   if (response.ready) {
     return (
       <div className="Search">
-        <form onSubmit={handleSubmit}>
+        <form id="inputForm" onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-6">
               <div className="form-group">
@@ -50,7 +50,7 @@ export default function Search({ defaultCity }) {
                   placeholder="Enter a City"
                   autoComplete="off"
                   autoFocus="on"
-                  className="Form-control"
+                  className="form-control"
                   onChange={updateCity}
                 />
               </div>
