@@ -5,7 +5,6 @@ export default function Footer() {
   return (
     <div className="Footer">
       <br />
-      <br />
       <a
         rel="noopener noreferrer"
         href="https://github.com/Alina-Goncalves/weather-forecast-react"
