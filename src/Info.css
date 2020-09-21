@@ -1,0 +1,36 @@
+.dayTemperature {
+  float: right;
+  clear: right;
+  margin-top: -20px;
+}
+
+.dayMaxTemperature {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f87808;
+}
+
+.dayMinTemperature {
+  font-size: 20px;
+  color: #1f4068;
+}
+
+.dayInfo {
+  list-style: none;
+  font-size: 13px;
+  line-height: 2;
+  padding-left: 55px;
+  margin-top: 3px;
+  margin-bottom: 30px;
+  text-transform: none;
+}
+
+.emojiInfo {
+  margin-right: 7px;
+}
+
+.weatherDescription {
+  float: right;
+  margin: 35px 5px;
+  font-size: 12px;
+}
