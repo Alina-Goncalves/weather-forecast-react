@@ -4,6 +4,7 @@ import pushpin from "./images/pushpin.png";
 import bigEmoji from "./images/sun-big-cloud.png";
 import axios from "axios";
 import CurrentCityTemp from "./CurrentCityTemp";
+import PresentDate from "./PresentDate";
 import Info from "./Info";
 
 export default function Search({ defaultCity }) {
@@ -66,6 +67,7 @@ export default function Search({ defaultCity }) {
           </div>
         </form>
         <CurrentCityTemp data={response} />
+        <PresentDate data={response} />
         <div className="bigWeatherSymbol">
           <img src={bigEmoji} alt="Sun" />
         </div>
