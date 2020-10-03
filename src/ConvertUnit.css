@@ -1,0 +1,59 @@
+h2 {
+  font-weight: 600;
+  color: #1f4068;
+  float: right;
+  font-size: 65px;
+  margin: -50px 86px;
+}
+
+.units .active {
+  color: black;
+}
+
+.degrees {
+  float: right;
+  margin: -43px 60px;
+  color: #f87808;
+  transition: all 200ms ease-in-out;
+}
+
+.degrees:hover {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.fahrenheit {
+  float: right;
+  margin: -43px 30px;
+  color: #f87808;
+  transition: all 200ms ease-in-out;
+}
+
+.fahrenheit:hover {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.bar {
+  float: right;
+  margin: -44px 50px;
+}
+
+.dayTemperature {
+  float: right;
+  clear: right;
+  margin-top: 80px;
+}
+
+.dayMaxTemperature {
+  font-size: 22px;
+  font-weight: 700;
+  color: #f87808;
+}
+
+.dayMinTemperature {
+  font-size: 20px;
+  color: #1f4068;
+}
