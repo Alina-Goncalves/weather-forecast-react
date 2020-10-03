@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./Search.css";
+import axios from "axios";
 import pushpin from "./images/pushpin.png";
 import bigEmoji from "./images/sun-big-cloud.png";
-import axios from "axios";
-import CurrentCityTemp from "./CurrentCityTemp";
+import ConvertUnit from "./ConvertUnit";
 import PresentDate from "./PresentDate";
 import Info from "./Info";
 
@@ -66,7 +66,12 @@ export default function Search({ defaultCity }) {
             </div>
           </div>
         </form>
-        <CurrentCityTemp data={response} />
+        <div>
+          <br />
+          <h1>{city}</h1>
+          <br />
+        </div>
+        <ConvertUnit celsius={response.temperature} dayMaxTemp={response.dayMaxTemp} dayMinTemp={response.dayMinTemp}/>
         <PresentDate data={response} />
         <div className="bigWeatherSymbol">
           <img src={bigEmoji} alt="Sun" />
