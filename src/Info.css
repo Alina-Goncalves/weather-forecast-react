@@ -1,20 +1,3 @@
-.dayTemperature {
-  float: right;
-  clear: right;
-  margin-top: -20px;
-}
-
-.dayMaxTemperature {
-  font-size: 22px;
-  font-weight: 700;
-  color: #f87808;
-}
-
-.dayMinTemperature {
-  font-size: 20px;
-  color: #1f4068;
-}
-
 .dayInfo {
   list-style: none;
   font-size: 13px;
@@ -31,6 +14,6 @@
 
 .weatherDescription {
   float: right;
-  margin: -18px 5px 35px;
+  margin: -18px -75px 35px;
   font-size: 12px;
 }
