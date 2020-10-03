@@ -8,15 +8,6 @@ export default function Info({ data }) {
   return (
     <div className="Info">
       <div className="weatherDescription"> {data.description}</div>
-      <div className="dayTemperature" width="100px">
-        <span className="dayMaxTemperature">
-          {Math.round(data.dayMaxTemp)}°
-        </span>
-        <span className="dayMinTemperature">
-          {" "}
-          / {Math.round(data.dayMinTemp)}°
-        </span>
-      </div>
       <ul className="dayInfo">
         <li>
           <img
