@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Info.css";
 import humidity from "./images/humidity.png";
 import windFace from "./images/windFace.png";
-import compass from "./images/compass.png";
+import Compass from "./Compass";
 
-export default function Info({ data }) {
+export default function Info({ data }) {  
   return (
     <div className="Info">
       <div className="weatherDescription"> {data.description}</div>
@@ -28,8 +28,7 @@ export default function Info({ data }) {
           <span>{Math.round(data.wind * 3.6)} km/h</span>
         </li>
         <li>
-          <img src={compass} alt="compass" width="18px" className="compass" />
-          <span> WNW</span>
+         <Compass data={data} />
         </li>
         <br />
       </ul>

@@ -31,6 +31,7 @@ export default function Search({ defaultCity }) {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
+      compass: response.data.wind.deg,
     });
   }
 
