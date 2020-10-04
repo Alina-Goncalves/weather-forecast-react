@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./Search.css";
 import axios from "axios";
 import pushpin from "./images/pushpin.png";
-import bigEmoji from "./images/sun-big-cloud.png";
 import ConvertUnit from "./ConvertUnit";
 import PresentDate from "./PresentDate";
 import Info from "./Info";
+import WeatherIcon from "./WeatherIcon";
 
 export default function Search({ defaultCity }) {
   const [city, setCity] = useState(defaultCity);
@@ -32,6 +32,7 @@ export default function Search({ defaultCity }) {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       compass: response.data.wind.deg,
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -72,11 +73,13 @@ export default function Search({ defaultCity }) {
           <h1>{city}</h1>
           <br />
         </div>
-        <ConvertUnit celsius={response.temperature} dayMaxTemp={response.dayMaxTemp} dayMinTemp={response.dayMinTemp}/>
+        <ConvertUnit
+          celsius={response.temperature}
+          dayMaxTemp={response.dayMaxTemp}
+          dayMinTemp={response.dayMinTemp}
+        />
         <PresentDate data={response} />
-        <div className="bigWeatherSymbol">
-          <img src={bigEmoji} alt="Sun" />
-        </div>
+        <WeatherIcon code={response.icon} alt={response.description} />
         <Info data={response} />
       </div>
     );
