@@ -6,6 +6,7 @@ import ConvertUnit from "./ConvertUnit";
 import PresentDate from "./PresentDate";
 import Info from "./Info";
 import WeatherIcon from "./WeatherIcon";
+import Forecast from "./Forecast";
 
 export default function Search({ defaultCity }) {
   const [city, setCity] = useState(defaultCity);
@@ -81,6 +82,7 @@ export default function Search({ defaultCity }) {
         <PresentDate data={response} />
         <WeatherIcon code={response.icon} alt={response.description} />
         <Info data={response} />
+        <Forecast  city={response.city} />
       </div>
     );
   } else {
