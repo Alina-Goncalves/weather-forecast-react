@@ -1,0 +1,15 @@
+.weatherSymbols {
+  width: 56px;
+  height: 55px;
+  
+}
+
+.maxTemperature {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f87808;
+}
+
+.minTemperature {
+  color: #1f4068;
+}
