@@ -1,98 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Forecast.css";
-import sun from "./images/sun.png";
-import fog from "./images/fog.png";
-import sunBigCloud from "./images/sun-big-cloud.png";
-import sunSmallCloud from "./images/sun-small-cloud.png";
+import WeatherForecast from "./WeatherForecast";
 
-export default function Forecast() {
-  return (
-    <div className="row" id="forecast">
-      <div className="col">
-        <div className="card">
-          <div className="card-body">
-            <div className="weatherSymbols">
-              <img src={sunSmallCloud} alt="sun-small-cloud" />
-            </div>
-            <br />
-            <strong>11:00</strong>
-            <br />
-            <br />
-            <div className="temperature">
-              <span className="maxTemperature"> 23</span>° /
-              <span className="minTemperature"> 21</span>°
-            </div>
-          </div>
-        </div>
+export default function Forecast({ city }) {
+  const [loaded, setLoaded] = useState(false);
+  const [forecast, setForecast] = useState(null);
+
+  function handleForecastResponse(response) {
+    setForecast(response.data);
+    setLoaded(true);
+    console.log(response.data);
+  }
+
+  if (loaded && city === forecast.city.name) {
+    return (
+      <div className="row">
+        {forecast.list.slice(0, 5).map(function (forecastItem) {
+          return <WeatherForecast data={forecastItem} />;
+        })}
       </div>
-      <div className="col">
-        <div className="card">
-          <div className="card-body">
-            <div className="weatherSymbols">
-              <img src={sun} alt="sun" />
-            </div>
-            <br />
-            <strong>12:00</strong>
-            <br />
-            <br />
-            <div className="temperature">
-              <span className="maxTemperature"> 26</span>° /
-              <span className="minTemperature"> 23</span>°
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col">
-        <div className="card">
-          <div className="card-body">
-            <div className="weatherSymbols">
-              <img src={sunSmallCloud} alt="sun-small-cloud" />
-            </div>
-            <br />
-            <strong>15:00</strong>
-            <br />
-            <br />
-            <div className="temperature">
-              <span className="maxTemperature"> 25</span>° /
-              <span className="minTemperature"> 20</span>°
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col">
-        <div className="card">
-          <div className="card-body">
-            <div className="weatherSymbols">
-              <img src={sunBigCloud} alt="sun-big-cloud" />
-            </div>
-            <br />
-            <strong>18:00</strong>
-            <br />
-            <br />
-            <div className="temperature">
-              <span className="maxTemperature"> 21</span>° /
-              <span className="minTemperature"> 17</span>°
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="col">
-        <div className="card">
-          <div className="card-body">
-            <div className="weatherSymbols">
-              <img src={fog} alt="fog" />
-            </div>
-            <br />
-            <strong>21:00</strong>
-            <br />
-            <br />
-            <div className="temperature">
-              <span className="maxTemperature"> 18</span>° /
-              <span className="minTemperature"> 15</span>°
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    );
+  } else {
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=06b5f102b5d87678883f70debd49073e&units=metric`;
+    axios.get(url).then(handleForecastResponse);
+
+    return null;
+  }
 }
