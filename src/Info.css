@@ -3,7 +3,7 @@
   font-size: 13px;
   line-height: 2;
   padding-left: 55px;
-  margin-top: 3px;
+  margin-top: -78px;
   margin-bottom: 30px;
   text-transform: none;
 }
@@ -14,6 +14,7 @@
 
 .weatherDescription {
   float: right;
-  margin: -18px -75px 35px;
+  margin-top: -18px;
+  margin-right: -78px;
   font-size: 12px;
 }
