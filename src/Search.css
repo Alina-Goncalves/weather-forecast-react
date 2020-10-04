@@ -24,15 +24,3 @@ button:hover {
   box-shadow: 10px 10px 50px #fde6b3;
   cursor: pointer;
 }
-
-.bigWeatherSymbol {
-  width: 60px;
-  height: 38px;
-}
-
-.bigWeatherSymbol img {
-  position: relative;
-  top: -48px;
-  left: 255px;
-  height: 170px;
-}
