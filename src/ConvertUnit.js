@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ConvertUnit.css";
 
-export default function ConvertUnit({ celsius, dayMaxTemp, dayMinTemp}) {
-  const [unit, setUnit] = useState(celsius);
-
+export default function ConvertUnit({
+  celsius,
+  dayMaxTemp,
+  dayMinTemp,
+  unit,
+  setUnit,
+}) {
   function showFahrenheit(event) {
     event.preventDefault();
     setUnit("fahrenheit");
@@ -11,13 +15,13 @@ export default function ConvertUnit({ celsius, dayMaxTemp, dayMinTemp}) {
 
   function showCelsius(event) {
     event.preventDefault();
-    setUnit(celsius);
+    setUnit("celsius");
   }
 
   function fahrenheit() {
     return (celsius * 9) / 5 + 32;
   }
-  if (unit === celsius) {
+  if (unit === "celsius") {
     return (
       <div className="ConvertUnit">
         <h2>{Math.round(celsius)}</h2>
@@ -31,9 +35,7 @@ export default function ConvertUnit({ celsius, dayMaxTemp, dayMinTemp}) {
           </a>
         </div>
         <div className="dayTemperature" width="100px">
-          <span className="dayMaxTemperature">
-            {Math.round(dayMaxTemp)}°
-          </span>
+          <span className="dayMaxTemperature">{Math.round(dayMaxTemp)}°</span>
           <span className="dayMinTemperature">
             {" "}
             / {Math.round(dayMinTemp)}°
