@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import "./WeatherForecast.css";
 import ForecastIcon from "./ForecastIcon";
 
-export default function WeatherForecast({ data }) {
+export default function WeatherForecast({ data, unit}) {
+
   function hours() {
     let date = new Date(data.dt * 1000);
     let hours = date.getHours();
@@ -19,6 +20,7 @@ export default function WeatherForecast({ data }) {
     return `${minTemperature}`;
   }
 
+ if (unit === "celsius") {
   return (
     <div className="col">
       <div className="card">
@@ -38,4 +40,28 @@ export default function WeatherForecast({ data }) {
       </div>
     </div>
   );
+} else {
+  let maxTemperatureFahrenheit = Math.round(((maxTemperature()) * 9) / 5 + 32);
+  let minTemperatureFahrenheit = Math.round(((minTemperature()) * 9) / 5 + 32); 
+
+  return(
+     <div className="col">
+      <div className="card">
+        <div className="card-body">
+          <div className="weatherSymbols">
+            <ForecastIcon code={data.weather[0].icon} />
+          </div>
+          <br />
+          <strong>{hours()}</strong>
+          <br />
+          <br />
+          <div className="temperature">
+            <span className="maxTemperature"> {maxTemperatureFahrenheit}</span>° /
+            <span className="minTemperature"> {minTemperatureFahrenheit}</span>°
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 }
