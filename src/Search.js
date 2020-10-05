@@ -7,6 +7,7 @@ import PresentDate from "./PresentDate";
 import Info from "./Info";
 import WeatherIcon from "./WeatherIcon";
 import Forecast from "./Forecast";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Search({ defaultCity }) {
   const [city, setCity] = useState(defaultCity);
@@ -85,7 +86,7 @@ export default function Search({ defaultCity }) {
         </form>
         <div>
           <br />
-          <h1>{response.city}</h1>
+          <h1>{city}</h1>
           <br />
         </div>
         <ConvertUnit
