@@ -7,9 +7,11 @@ import PresentDate from "./PresentDate";
 import Info from "./Info";
 import WeatherIcon from "./WeatherIcon";
 import Forecast from "./Forecast";
+import WeatherForecast from "./WeatherForecast";
 
 export default function Search({ defaultCity }) {
   const [city, setCity] = useState(defaultCity);
+  const [unit, setUnit] = useState("celsius");
   const [response, setResponse] = useState({ ready: false });
 
   function handleSubmit(event) {
@@ -38,8 +40,20 @@ export default function Search({ defaultCity }) {
   }
 
   function apiSearch() {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=06b5f102b5d87678883f70debd49073e&units=metric`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=06b5f102b5d87678883f70debd49073e&units=metric`;
     axios.get(url).then(handleResponse);
+  }
+
+  function showPosition(position) {
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=06b5f102b5d87678883f70debd49073e&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function getLocation() {
+    navigator.geolocation.getCurrentPosition(showPosition);
   }
 
   if (response.ready) {
@@ -64,6 +78,7 @@ export default function Search({ defaultCity }) {
                   alt="location-pin"
                   width="24px"
                   className="pinLocation"
+                  onClick={getLocation}
                 />
               </button>
             </div>
@@ -78,11 +93,13 @@ export default function Search({ defaultCity }) {
           celsius={response.temperature}
           dayMaxTemp={response.dayMaxTemp}
           dayMinTemp={response.dayMinTemp}
+          unit={unit}
+          setUnit={setUnit}
         />
         <PresentDate data={response} />
         <WeatherIcon code={response.icon} alt={response.description} />
         <Info data={response} />
-        <Forecast  city={response.city} />
+        <Forecast city={response.city} unit={unit} setUnit={setUnit} />
       </div>
     );
   } else {
