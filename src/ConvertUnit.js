@@ -2,7 +2,7 @@ import React from "react";
 import "./ConvertUnit.css";
 
 export default function ConvertUnit({
-  celsius,
+  temp,
   dayMaxTemp,
   dayMinTemp,
   unit,
@@ -19,12 +19,12 @@ export default function ConvertUnit({
   }
 
   function fahrenheit() {
-    return (celsius * 9) / 5 + 32;
+    return (temp * 9) / 5 + 32;
   }
   if (unit === "celsius") {
     return (
       <div className="ConvertUnit">
-        <h2>{Math.round(celsius)}</h2>
+        <h2>{Math.round(temp)}</h2>
         <div className="units">
           <a href="#/" className="degrees active">
             °C
