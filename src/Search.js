@@ -90,7 +90,7 @@ export default function Search({ defaultCity }) {
           <br />
         </div>
         <ConvertUnit
-          celsius={response.temperature}
+          temp={response.temperature}
           dayMaxTemp={response.dayMaxTemp}
           dayMinTemp={response.dayMinTemp}
           unit={unit}
