@@ -12,7 +12,15 @@ export default function Footer() {
       >
         Open-Source Code {""}
       </a>
-      by Alina Gonçalves
+      by
+      <a
+        rel="noopener noreferrer"
+        href="https://www.linkedin.com/in/alinacgon%C3%A7alves/"
+        target="_blank"
+      >
+        {" "}
+        Alina Gonçalves{" "}
+      </a>
     </div>
   );
 }
